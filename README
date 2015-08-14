@@ -1,0 +1,3 @@
+Build project using tools under linux
+	no cydsfit 
+	hex -> cyacd requires modifications, for objcopy default hex output
