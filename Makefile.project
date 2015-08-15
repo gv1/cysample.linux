@@ -1,0 +1,27 @@
+export PATH:=/opt/Freescale/KDS_3.0.0/toolchain/bin:${PATH}
+all:
+	arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source/PSoC4 -Wa,-alh=./CortexM0/ARM_GCC_484/Debug/main.lst -g -D DEBUG -Wall -ffunction-sections -O0 -c ./main.c -o ./CortexM0/ARM_GCC_484/Debug/main.o
+	arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source/PSoC4 -Wa,-alh=./CortexM0/ARM_GCC_484/Debug/cyfitter_cfg.lst -g -D DEBUG -Wall -ffunction-sections -O0 -c ./Generated_Source/PSoC4/cyfitter_cfg.c -o ./CortexM0/ARM_GCC_484/Debug/cyfitter_cfg.o
+	arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source/PSoC4 -Wa,-alh=./CortexM0/ARM_GCC_484/Debug/cybootloader.lst -g -D DEBUG -Wall -ffunction-sections -O0 -c ./Generated_Source/PSoC4/cybootloader.c -o ./CortexM0/ARM_GCC_484/Debug/cybootloader.o
+	arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source/PSoC4 -Wa,-alh=./CortexM0/ARM_GCC_484/Debug/cymetadata.lst -g -D DEBUG -Wall -ffunction-sections -O0 -c ./Generated_Source/PSoC4/cymetadata.c -o ./CortexM0/ARM_GCC_484/Debug/cymetadata.o
+	arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source/PSoC4 -Wa,-alh=./CortexM0/ARM_GCC_484/Debug/Bootloadable_1.lst -g -D DEBUG -Wall -ffunction-sections -O0 -c ./Generated_Source/PSoC4/Bootloadable_1.c -o ./CortexM0/ARM_GCC_484/Debug/Bootloadable_1.o
+	arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source/PSoC4 -Wa,-alh=./CortexM0/ARM_GCC_484/Debug/SW1.lst -g -D DEBUG -Wall -ffunction-sections -O0 -c ./Generated_Source/PSoC4/SW1.c -o ./CortexM0/ARM_GCC_484/Debug/SW1.o
+	arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source/PSoC4 -Wa,-alh=./CortexM0/ARM_GCC_484/Debug/LED.lst -g -D DEBUG -Wall -ffunction-sections -O0 -c ./Generated_Source/PSoC4/LED.c -o ./CortexM0/ARM_GCC_484/Debug/LED.o
+	arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source/PSoC4 -Wa,-alh=./CortexM0/ARM_GCC_484/Debug/Cm0Start.lst -g -D DEBUG -Wall -ffunction-sections -O0 -c ./Generated_Source/PSoC4/Cm0Start.c -o ./CortexM0/ARM_GCC_484/Debug/Cm0Start.o
+	arm-none-eabi-as -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source/PSoC4 -alh=./CortexM0/ARM_GCC_484/Debug/CyBootAsmGnu.lst -g -o ./CortexM0/ARM_GCC_484/Debug/CyBootAsmGnu.o ./Generated_Source/PSoC4/CyBootAsmGnu.s
+	arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source/PSoC4 -Wa,-alh=./CortexM0/ARM_GCC_484/Debug/CyFlash.lst -g -D DEBUG -Wall -ffunction-sections -O0 -c ./Generated_Source/PSoC4/CyFlash.c -o ./CortexM0/ARM_GCC_484/Debug/CyFlash.o
+	arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source/PSoC4 -Wa,-alh=./CortexM0/ARM_GCC_484/Debug/CyLib.lst -g -D DEBUG -Wall -ffunction-sections -O0 -c ./Generated_Source/PSoC4/CyLib.c -o ./CortexM0/ARM_GCC_484/Debug/CyLib.o
+	arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source/PSoC4 -Wa,-alh=./CortexM0/ARM_GCC_484/Debug/cyPm.lst -g -D DEBUG -Wall -ffunction-sections -O0 -c ./Generated_Source/PSoC4/cyPm.c -o ./CortexM0/ARM_GCC_484/Debug/cyPm.o
+	arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source/PSoC4 -Wa,-alh=./CortexM0/ARM_GCC_484/Debug/cyutils.lst -g -D DEBUG -Wall -ffunction-sections -O0 -c ./Generated_Source/PSoC4/cyutils.c -o ./CortexM0/ARM_GCC_484/Debug/cyutils.o
+	arm-none-eabi-ar -rs ./CortexM0/ARM_GCC_484/Debug/CY8CKIT-049-41XX_GPIO_Example.a ./CortexM0/ARM_GCC_484/Debug/cyfitter_cfg.o ./CortexM0/ARM_GCC_484/Debug/Bootloadable_1.o ./CortexM0/ARM_GCC_484/Debug/SW1.o ./CortexM0/ARM_GCC_484/Debug/LED.o ./CortexM0/ARM_GCC_484/Debug/CyBootAsmGnu.o ./CortexM0/ARM_GCC_484/Debug/CyFlash.o ./CortexM0/ARM_GCC_484/Debug/CyLib.o ./CortexM0/ARM_GCC_484/Debug/cyPm.o ./CortexM0/ARM_GCC_484/Debug/cyutils.o
+	arm-none-eabi-gcc -Wl,--start-group -o ./CortexM0/ARM_GCC_484/Debug/CY8CKIT-049-41XX_GPIO_Example.elf ./CortexM0/ARM_GCC_484/Debug/main.o ./CortexM0/ARM_GCC_484/Debug/cybootloader.o ./CortexM0/ARM_GCC_484/Debug/cymetadata.o ./CortexM0/ARM_GCC_484/Debug/Cm0Start.o ./CortexM0/ARM_GCC_484/Debug/CY8CKIT-049-41XX_GPIO_Example.a -L"/mnt/Program Files (x86)/Cypress/PSoC Creator/3.2/PSoC Creator/psoc/content/CyComponentLibrary/CyComponentLibrary.cylib/CortexM0/ARM_GCC_484/Debug/" CyComponentLibrary.a -mcpu=cortex-m0 -mthumb -g -ffunction-sections -O0 -Wl,-Map,./CortexM0/ARM_GCC_484/Debug/CY8CKIT-049-41XX_GPIO_Example.map -T Generated_Source/PSoC4/cm0gcc.ld -specs=nano.specs -Wl,--gc-sections -Wl,--end-group
+hex:
+	# arm-none-eabi-objcopy --gap-fill 0x00 -O ihex ./CortexM0/ARM_GCC_484/Debug/CY8CKIT-049-41XX_GPIO_Example.elf ./CortexM0/ARM_GCC_484/Debug/CY8CKIT-049-41XX_GPIO_Example.hex
+	arm-none-eabi-objcopy --gap-fill 0x00 -O ihex -v ./CortexM0/ARM_GCC_484/Debug/CY8CKIT-049-41XX_GPIO_Example.elf ./CortexM0/ARM_GCC_484/Debug/CY8CKIT-049-41XX_GPIO_Example.hex
+BOOTLOADER=../Bootloader_Dependencies/UART_Bootloader.elf
+TSIZE=$(shell arm-none-eabi-size $(BOOTLOADER) | grep $(notdir $(BOOTLOADER)) | awk '{ print $$1 }')
+cyacd:
+	perl ../../hex2cyacd/ihex2cyacd.pl $(TSIZE) 128 ./CortexM0/ARM_GCC_484/Debug/CY8CKIT-049-41XX_GPIO_Example.hex ./CortexM0/ARM_GCC_484/Debug/CY8CKIT-049-41XX_GPIO_Example.cyacd
+	
+flash:
+	../../cybootload_linux/cybootload_linux ./CortexM0/ARM_GCC_484/Debug/CY8CKIT-049-41XX_GPIO_Example.1.cyacd
